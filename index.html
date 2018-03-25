@@ -5,9 +5,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>登录</title>
+  <link rel="stylesheet" href="./src/common/style/reset.css">
+  <!-- <link rel="stylesheet" href="./src/views/style/style.css"> -->
+  <link rel="stylesheet/less" type="text/css" href="./src/views/style/style.less" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_454996_9rulgfaassepcik9.css">
+  <script type="text/javascript" src="//at.alicdn.com/t/font_454996_x6hf091umpe97ldi.js"></script>
+  <script src="https://cdn.bootcss.com/less.js/3.0.1/less.min.js"></script>
+
+  </script>
 </head>
 <body>
-  登录页
+  <div class="content">
+    <div class="headLoge">
+      <img src="./src/common/img/logo.png" alt="logo">
+    </div>
+    <div class="container">
+      <div class="containerWrapper">
+        <div class="nav">
+          <div class="navButton">
+            <span class="navItem login"><a href="#/">登录</a></span>
+            <span class="navItem register"><a href="#/register">注册</a></span>
+            <span class="navItem resetPW">重置密码</span>
+            <span class="navItem weixin">绑定微信</span>
+          </div>
+          <div class="navIndex"></div>
+        </div>
+
+        <div class="routerView login">
+          <div class="inputContent">
+            <form action="index.html" method="post">
+              <!-- 手机号输入框 -->
+              <div class="inputItem userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yonghu"></use>
+                </svg>
+                <input type="text" placeholder="手机号/用户名">
+              </div>
+              <!-- 密码输入框 -->
+              <div class="inputItem userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-mima"></use>
+                </svg>
+                <input type="password" placeholder="密码">
+              </div>
+              <!-- 滑动验证 -->
+              <div class="inputItem slide">
+                <div class="sliderBtn"> &gt;&gt;</div>
+                <span class="sliderText">按住滑块拖到最右侧，完成验证</span>
+              </div>
+            </form>
+            <!-- 保存密码 & 记住密码 -->
+            <div class="pagination">
+              <span class="paginationItem remPW">
+                <input type="checkbox" id="iconfont"/>
+                <label for="iconfont"></label>
+                <span class="label">保存密码</span>
+              </span>
+              <span class="paginationItem forgetPW">
+                <span class="label"><a href="#/resetPW">忘记密码?</a></span>
+              </span>
+            </div>
+          </div>
+          <!-- 主按钮 -->
+          <button class="loginBtn">立即登录</button>
+          <!-- line - or -->
+          <div class=" lineItem lineOr">
+            <div class="line"></div>
+            <span class="text">or</span>
+            <div class="line"></div>
+          </div>
+          <!-- 微信登录按钮 -->
+          <a href="#/weixin" class="weixinloginBtn">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-weixin"></use>
+            </svg>
+            <span class="text">微信登录</span>
+          </a>
+        </div>
+
+
+        <div class="routerView register">
+          <div class="inputContent">
+            <form action="index.html" method="post">
+              <!-- 手机号输入框 -->
+              <div class="inputItem userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yonghu"></use>
+                </svg>
+                <input type="text" placeholder="手机号/用户名">
+              </div>
+              <!-- 密码输入框 -->
+              <div class="inputItem userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-mima"></use>
+                </svg>
+                <input type="password" placeholder="密码">
+              </div>
+              <!-- 验证码 -->
+              <div class="inputItem verCode">
+                <div class="userInput">
+                  <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-yanzhengma"></use>
+                  </svg>
+                  <input type="text" placeholder="验证码">
+                </div>
+                <button class="messageCodeBtn">发送短信验证码</button>
+              </div>
+            </form>
+          </div>
+          <!-- line - yingxiang -->
+          <div class="lineItem lineYX">
+            <div class="line"></div>
+            <span class="text">《映像活动服务条款》</span>
+            <div class="line"></div>
+          </div>
+          <!-- 主按钮 -->
+          <button class="loginBtn">同意条款并注册</button>
+        </div>
+
+        <div class="routerView resetPW">
+          <div class="inputContent">
+            <form action="index.html" method="post">
+              <!-- 手机号输入框 -->
+              <div class="inputItem userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yonghu"></use>
+                </svg>
+                <input type="text" placeholder="手机号/用户名">
+              </div>
+              <!-- 验证码 -->
+              <div class="inputItem verCode">
+                <div class="userInput">
+                  <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-yanzhengma"></use>
+                  </svg>
+                  <input type="text" placeholder="验证码">
+                </div>
+                <button class="messageCodeBtn">发送短信验证码</button>
+              </div>
+              <!-- 新密码输入框 -->
+              <div class="inputItem  userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-mima"></use>
+                </svg>
+                <input type="password" placeholder="新密码（6-16位）">
+              </div>
+            </form>
+          </div>
+          <!-- 主按钮 -->
+          <button class="loginBtn">重置密码</button>
+          <!-- 返回登录页 -->
+          <div class="backToLogin">
+            返回 <a href="#/">登录页</a>
+          </div>
+        </div>
+
+
+        <div class="routerView weixin">
+          <div class="inputContent">
+            <form action="index.html" method="post">
+              <!-- 手机号输入框 -->
+              <div class="inputItem userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yonghu"></use>
+                </svg>
+                <input type="text" placeholder="手机号/用户名">
+              </div>
+              <!-- 密码输入框 -->
+              <div class="inputItem userInput">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-mima"></use>
+                </svg>
+                <input type="password" placeholder="密码">
+              </div>
+              <!-- 验证码 -->
+              <div class="inputItem verCode">
+                <div class="userInput">
+                  <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-yanzhengma"></use>
+                  </svg>
+                  <input type="text" placeholder="验证码">
+                </div>
+                <button class="messageCodeBtn">发送短信验证码</button>
+              </div>
+            </form>
+          </div>
+          <!-- line - yingxiang -->
+          <div class="lineItem lineYX">
+            <div class="line"></div>
+            <span class="text">《映像活动服务条款》</span>
+            <div class="line"></div>
+          </div>
+          <!-- 主按钮 -->
+          <button class="loginBtn">同意条款并注册</button>
+        </div>
+
+
+
+      </div>
+      <div class="containerFooter">
+        <p class="copyRight">Copyright &copy; 2013-2018 版权所有 北京韦尔科技有限公司 京ICP备14040981号-2</p>
+      </div>
+    </div>
+  </div>
 </body>
 <script type="text/javascript" src='./src/main.js'></script>
+<script type="text/javascript" src='./src/views/js/index.js'></script>
+
+</script>
 </html>
