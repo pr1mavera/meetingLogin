@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import './style/reset.css'
 import './style/style.less'
 import Router from './js/router.js'
 
