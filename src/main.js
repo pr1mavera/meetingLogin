@@ -1,23 +1,61 @@
 import $ from 'jquery';
+import './style/style.less'
+import Router from './js/router.js'
 
-$(() => {
-  console.log('hello');
-})
+var navList = document.getElementsByClassName('navItem');
+var navIndex = document.getElementsByClassName('navIndex');
+var viewList = document.getElementsByClassName('routerView');
 
-function Router() {
-this.routes = {};
-this.currentUrl = '';
+function changeView(dom, className) {
+  for (var i = 0; i < dom.length; i++) {
+    $(dom[i]).addClass('displayNone');
+    if ($(dom[i]).hasClass(className)) {
+      $(dom[i]).removeClass('displayNone');
+    }
+  }
 }
-Router.prototype.route = function(path, callback) {
-this.routes[path] = callback || function(){};
-};
-Router.prototype.refresh = function() {
-this.currentUrl = location.hash.slice(1) || '/';
-this.routes[this.currentUrl]();
-};
-Router.prototype.init = function() {
-window.addEventListener('load', this.refresh.bind(this), false);
-window.addEventListener('hashchange', this.refresh.bind(this), false);
+
+function changeNav(nav, className) {
+  for (var i = 0; i < nav.length; i++) {
+    $(nav[i]).removeClass('isChecked');
+    $(nav[i]).addClass('displayNone');
+    if ($(nav[i]).hasClass(className)) {
+      $(nav[i]).addClass('isChecked');
+    }
+  }
+  if (className == 'login' || className == 'register') {
+    $(nav[0]).removeClass('displayNone');
+    $(nav[1]).removeClass('displayNone');
+    $(navIndex).removeClass('displayNone');
+    if (className == 'register') {
+      $(navIndex).addClass('navIndexMove');
+    } else {
+      $(navIndex).removeClass('navIndexMove');
+    }
+  } else if (className == 'resetPW') {
+    $(nav[2]).removeClass('displayNone');
+    $(navIndex).addClass('displayNone');
+  } else {
+    $(nav[3]).removeClass('displayNone');
+    $(navIndex).addClass('displayNone');
+  }
 }
-window.Router = new Router();
-window.Router.init();
+
+Router.route('/', function() {
+  changeView(viewList, 'login');
+  changeNav(navList, 'login');
+});
+Router.route('/register', function() {
+  changeView(viewList, 'register');
+  changeNav(navList, 'register');
+});
+Router.route('/resetPW', function() {
+  changeView(viewList, 'resetPW');
+  changeNav(navList, 'resetPW');
+});
+Router.route('/weixin', function() {
+  changeView(viewList, 'weixin');
+  changeNav(navList, 'weixin');
+});
+
+Router.init();
